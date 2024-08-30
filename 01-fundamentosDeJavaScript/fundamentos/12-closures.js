@@ -7,10 +7,10 @@ CLOSURE: Función que tiene acceso a variables de un ámbito externo, incluso de
 function outerFunction () {
   let outerVariable = 'I am from outer function';
 
-  function innterFunction () {
+  function innerFunction () {
     console.log( outerVariable );
   }
-  return innterFunction;
+  return innerFunction;
 };
 
 const closureExample = outerFunction();
@@ -33,3 +33,18 @@ counterA();
 const counterB = createCouter();
 
 counterB();
+
+function outer() {
+  let message = 'Hello, ';
+
+  function inner( name ) {
+    console.log( message + name );
+  }
+  return inner;
+}
+
+const closureA = outer();
+const closureB = outer();
+
+closureA( 'Oscar' );
+closureB( 'Natha' );
